@@ -1,4 +1,4 @@
 import { createApp } from "vue";
-import App from "./04_setup中toRefs/App";
+import App from "./05_setup的computed/App";
 
 createApp(App).mount("#app");
