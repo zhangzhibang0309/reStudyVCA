@@ -1,9 +1,15 @@
 <template>
-  <show-info :info="info" @changeInfoName="changeInfoName"></show-info>
+  <show-info
+    :info="info"
+    :roInfo="roInfo"
+    @changeInfoName="changeInfoName"
+    @changeRoInfoName="changeRoInfoName"
+    changeRoInfoName
+  ></show-info>
 </template>
 
 <script>
-import { reactive } from "vue";
+import { reactive, readonly } from "vue";
 import ShowInfo from "./ShowInfo.vue";
 
 export default {
@@ -19,9 +25,16 @@ export default {
       info.name = payload;
     }
 
+    const roInfo = readonly(info);
+    function changeRoInfoName(payload) {
+      info.name = payload;
+    }
+
     return {
       info,
       changeInfoName,
+      roInfo,
+      changeRoInfoName,
     };
   },
 };
