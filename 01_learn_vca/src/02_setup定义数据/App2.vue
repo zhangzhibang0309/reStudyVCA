@@ -1,11 +1,15 @@
-<template></template>
+<template>
+  <show-info name="zz" :age="22"></show-info>
+</template>
 
 <script>
-import { ConstantTypes } from "@vue/compiler-core";
-import { reactive } from "vue";
-import { ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
+import ShowInfo from "./ShowInfo.vue";
 
 export default {
+  components: {
+    ShowInfo,
+  },
   setup() {
     // 定义响应式数据： reactive/ref
     // 强调：ref也可以定义复杂的数据
@@ -30,6 +34,14 @@ export default {
       const serverMusic = ["海阔天空", "小苹果", "one last kiss"];
       music.value = serverMusic;
     });
+
+    return {
+      info,
+      acount,
+      message,
+      counter,
+      music,
+    };
   },
 };
 </script>
